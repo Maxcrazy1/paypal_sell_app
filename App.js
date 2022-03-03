@@ -1,35 +1,18 @@
+import {SafeAreaView, StyleSheet} from 'react-native';
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Orders from './pages/Orders/List';
-import DetailsOrder from './pages/Orders/Details';
+import SignIn from './src/screens/Auth/SignIn';
 
-const Search = () => (
-  <View style={styles.container}>
-    <Text>Search</Text>
-  </View>
-);
-
-const App = () => {
-  const Tab = createBottomTabNavigator(); // here!
+export default function App() {
   return (
-    <NavigationContainer>
-      {/* here! */}
-      <Tab.Navigator>
-        <Tab.Screen name="orders" component={Orders} />
-        <Tab.Screen name="details" component={DetailsOrder} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={styles.root}>
+      <SignIn />
+    </SafeAreaView>
   );
-};
-
-export default App;
+}
 
 const styles = StyleSheet.create({
-  container: {
+  root: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#f8f8f8',
   },
 });
