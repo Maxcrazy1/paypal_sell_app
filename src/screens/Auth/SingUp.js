@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton';
+import SocialSignInButtons from '../../components/SocialSiginInButton';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -15,13 +16,6 @@ const SignUp = () => {
 
   const onForgotPasswordPressed = () => {
     console.warn('PasswordPressed');
-  };
-
-  const onSignUpFb = () => {
-    console.warn('sign fb');
-  };
-  const onSignUpGmail = () => {
-    console.warn('sign gmail');
   };
 
   return (
@@ -49,35 +43,15 @@ const SignUp = () => {
 
         <CustomButton onPress={onSignUpPressed} text="Registrate" />
 
+        <SocialSignInButtons />
+
         <Text style={styles.text}>
           Al registrate aceptas nuestros{' '}
-          <Text onPress={onSignUpFb} style={styles.link}>
+          <Text onPress={onForgotPasswordPressed} style={styles.link}>
             terminos y condiciones
           </Text>
         </Text>
-        <CustomButton
-          onPress={onSignUpFb}
-          text="Inicia con Facebook"
-          type="TERTIARY"
-          bgColor="#e7eaf4"
-          fgColor="#4765a9"
-        />
 
-        <CustomButton
-          onPress={onSignUpGmail}
-          text="Inicia con Google"
-          type="TERTIARY"
-          bgColor="#fae9ea"
-          fgColor="#dd4d44"
-        />
-
-        <CustomButton
-          onPress={onSignUpGmail}
-          text="Inicia con Apple"
-          type="TERTIARY"
-          bgColor="#e3e3e3"
-          fgColor="#363636"
-        />
         <CustomButton
           onPress={onForgotPasswordPressed}
           text="Ya tienes cuenta? Inicia sesión"

@@ -9,6 +9,7 @@ import {
 import Logo from '../../../assets/images/Logo_1.png';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton';
+import SocialSignInButtons from '../../components/SocialSiginInButton';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -21,13 +22,6 @@ const SignIn = () => {
 
   const onForgotPasswordPressed = () => {
     console.warn('PasswordPressed');
-  };
-
-  const onSignInFb = () => {
-    console.warn('sign fb');
-  };
-  const onSignInGmail = () => {
-    console.warn('sign gmail');
   };
 
   return (
@@ -47,6 +41,7 @@ const SignIn = () => {
         />
 
         <CustomButton onPress={onSignInPressed} text="Inicia Sesión" />
+        <SocialSignInButtons />
 
         <CustomButton
           onPress={onForgotPasswordPressed}
@@ -54,30 +49,7 @@ const SignIn = () => {
           type="TERTIARY"
         />
 
-        <CustomButton
-          onPress={onSignInFb}
-          text="Inicia con Facebook"
-          type="TERTIARY"
-          bgColor="#e7eaf4"
-          fgColor="#4765a9"
-        />
-
-        <CustomButton
-          onPress={onSignInGmail}
-          text="Inicia con Google"
-          type="TERTIARY"
-          bgColor="#fae9ea"
-          fgColor="#dd4d44"
-        />
-
-        <CustomButton
-          onPress={onSignInGmail}
-          text="Inicia con Apple"
-          type="TERTIARY"
-          bgColor="#e3e3e3"
-          fgColor="#363636"
-        />
-        <CustomButton
+       <CustomButton
           onPress={onForgotPasswordPressed}
           text="¿No tienes cuenta? Registrate!"
           type="TERTIARY"
