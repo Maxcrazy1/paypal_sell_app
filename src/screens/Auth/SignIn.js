@@ -10,18 +10,25 @@ import Logo from '../../../assets/images/Logo_1.png';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import SocialSignInButtons from '../../components/SocialSiginInButton';
+import {useNavigation} from '@react-navigation/native';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const {height} = useWindowDimensions();
 
+  const navigation = useNavigation();
+
   const onSignInPressed = () => {
-    console.warn('SignIn');
+    navigation.navigate('Home');
   };
 
   const onForgotPasswordPressed = () => {
-    console.warn('PasswordPressed');
+    navigation.navigate('ResetPassword');
+  };
+
+  const onSignUpPressed = () => {
+    navigation.navigate('SignUp');
   };
 
   return (
@@ -49,8 +56,8 @@ const SignIn = () => {
           type="TERTIARY"
         />
 
-       <CustomButton
-          onPress={onForgotPasswordPressed}
+        <CustomButton
+          onPress={onSignUpPressed}
           text="¿No tienes cuenta? Registrate!"
           type="TERTIARY"
         />

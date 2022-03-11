@@ -3,19 +3,25 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import SocialSignInButtons from '../../components/SocialSiginInButton';
+import {useNavigation} from '@react-navigation/native';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [passwordRepeat, setPasswordRepeat] = useState('');
+  const navigation = useNavigation();
 
   const onSignUpPressed = () => {
-    console.warn('SignUp');
+    navigation.navigate('Home');
   };
 
-  const onForgotPasswordPressed = () => {
-    console.warn('PasswordPressed');
+  const onSignInPressed = () => {
+    navigation.navigate('SignIn');
+  };
+
+  const onTermsPressed = () => {
+    console.warn('Lorem ipsum dolor sit amet, consectetur adipisicing elit.');
   };
 
   return (
@@ -47,13 +53,13 @@ const SignUp = () => {
 
         <Text style={styles.text}>
           Al registrate aceptas nuestros{' '}
-          <Text onPress={onForgotPasswordPressed} style={styles.link}>
+          <Text onPress={onTermsPressed} style={styles.link}>
             terminos y condiciones
           </Text>
         </Text>
 
         <CustomButton
-          onPress={onForgotPasswordPressed}
+          onPress={onSignInPressed}
           text="Ya tienes cuenta? Inicia sesión"
           type="TERTIARY"
         />

@@ -2,16 +2,18 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton';
+import {useNavigation} from '@react-navigation/native';
 
 const ConfirmEmail = () => {
   const [email, setEmail] = useState('');
+  const navigation = useNavigation();
 
   const onConfirmEmailPressed = () => {
-    console.warn('ConfirmEmail');
+    navigation.navigate('NewPassword');
   };
 
-  const onForgotPasswordPressed = () => {
-    console.warn('PasswordPressed');
+  const onSignInPressed = () => {
+    navigation.navigate('SignIn');
   };
 
   return (
@@ -26,7 +28,7 @@ const ConfirmEmail = () => {
         <CustomButton onPress={onConfirmEmailPressed} text="Enviar código" />
 
         <CustomButton
-          onPress={onForgotPasswordPressed}
+          onPress={onSignInPressed}
           text="Ya recordaste? Inicia sesión"
           type="TERTIARY"
         />

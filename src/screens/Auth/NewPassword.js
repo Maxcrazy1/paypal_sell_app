@@ -2,17 +2,23 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton';
+import {useNavigation} from '@react-navigation/native';
 
 const NewPassword = () => {
   const [code, setCode] = useState('');
   const [newPassword, setNewPassword] = useState('');
+  const navigation = useNavigation();
 
   const onNewPasswordPressed = () => {
-    console.warn('NewPassword');
+    navigation.navigate('SignIn');
   };
 
   const onForgotPasswordPressed = () => {
-    console.warn('PasswordPressed');
+    console.warn('he');
+  };
+
+  const onSignInPressed = () => {
+    navigation.navigate('SignIn');
   };
 
   return (
@@ -34,7 +40,7 @@ const NewPassword = () => {
         />
 
         <CustomButton
-          onPress={onForgotPasswordPressed}
+          onPress={onSignInPressed}
           text="Ya tienes cuenta? Inicia sesión"
           type="TERTIARY"
         />
