@@ -11,6 +11,7 @@ import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import SocialSignInButtons from '../../components/SocialSiginInButton';
 import {useNavigation} from '@react-navigation/native';
+import axios from 'axios';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -20,7 +21,21 @@ const SignIn = () => {
   const navigation = useNavigation();
 
   const onSignInPressed = () => {
-    navigation.navigate('Home');
+    // navigation.navigate('Home');
+
+    axios
+      .post('http://10.0.2.2:3000/login', {
+        user: {
+          email,
+          password,
+        },
+      })
+      .then(function (response) {
+        console.log(JSON.stringify(response));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   const onForgotPasswordPressed = () => {
