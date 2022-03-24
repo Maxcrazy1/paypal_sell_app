@@ -52,7 +52,8 @@ const SignIn = () => {
         <Image
           source={Logo}
           style={[styles.logo, {height: height * 0.3}]}
-          resizeMode="contain"></Image>
+          resizeMode="contain"
+        />
 
         <CustomInput placeholder="Email" value={email} setValue={setEmail} />
         <CustomInput
